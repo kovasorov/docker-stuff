@@ -1,0 +1,28 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+set CMD [lindex $argv 0]
+
+spawn dotnet neo-cli.dll /rpc
+
+if { $CMD == "create" } {
+    expect "neo"
+    send "create wallet myneodata/mywallet.json\n"
+    expect "password:"
+    send [exec cat myneodata/mywp.txt]
+    send "\n"
+    expect "password:"
+    send [exec cat myneodata/mywp.txt]
+    send "\n"
+}
+
+expect "neo"
+send "open wallet myneodata/mywallet.json\n"
+expect "password:"
+send [exec cat myneodata/mywp.txt]
+send "\n"
+expect "neo"
+send "show state\n"
+expect "neo"
+
+interact
