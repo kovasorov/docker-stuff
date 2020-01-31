@@ -26,3 +26,5 @@ docker run -dit -p 20331:20331 -v neo-data:/opt/neo-cli/myneodata <IMAGE_NAME> t
 |:-----------------|--------:|--------:|
 |JSON-RPC via HTTPS|10331    |20331    |
 |JSON-RPC via HTTP |10332    |20332    |
+
+&copy; 2018

@@ -5,3 +5,5 @@
 - Litecoin
 - NEO
 - Zcash
+
+&copy; 2018

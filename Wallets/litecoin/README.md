@@ -40,3 +40,5 @@
 ## Faucet testnet
 
 https://faucet.xblau.com/
+
+&copy; 2018

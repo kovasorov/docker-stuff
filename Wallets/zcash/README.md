@@ -21,3 +21,5 @@ docker run --rm --name zcash-server -p 18232:18232 -v test_params:/root/.zcash-p
 ## testnet faucet
 
 v2.0.1 <https://faucet.testnet.z.cash/>
+
+&copy; 2018
