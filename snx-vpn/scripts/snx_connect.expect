@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+
+spawn snx -s $::env(SNX_SERVER) -u $::env(SNX_USER)
+expect "*?assword:"
+send "$::env(SNX_PASSWORD)\r"
+expect "*Do you accept*"
+send "y\r"
+expect "SNX - connected."
+interact
