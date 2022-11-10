@@ -15,6 +15,15 @@ services:
       - openfire_logs:/var/log/openfire
     restart: always
 
+  conversejs:
+    container_name: conversejs
+    build: conversejs/.
+    ports:
+      - "381:81"
+    depends_on:
+      - "openfire"
+    restart: always
+
 volumes:
   openfire_data: {}
   openfire_logs: {}
