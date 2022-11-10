@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This file stores bootstrap properties needed by Openfire.
+    Property names must be in the format: "prop.name.is.blah=value"
+    That will be stored as:
+        <prop>
+            <name>
+                <is>
+                    <blah>value</blah>
+                </is>
+            </name>
+        </prop>
+
+    Most properties are stored in the Openfire database. A
+    property viewer and editor is included in the admin console.
+-->
+<!-- root element, all properties must be under this element -->
+<jive> 
+  <adminConsole> 
+    <!-- Disable either port by setting the value to -1 -->  
+    <port>9090</port>  
+    <securePort>9091</securePort> 
+  </adminConsole>  
+  <locale>en</locale>  
+  <!-- Network settings. By default, Openfire will bind to all network interfaces.
+      Alternatively, you can specify a specific network interfaces that the server
+      will listen on. For example, 127.0.0.1. This setting is generally only useful
+       on multi-homed servers. -->  
+  <!--
+    <network>
+        <interface></interface>
+    </network>
+    -->  
+  <!--
+        One time token to gain temporary access to the admin console.
+    -->  
+  <!--
+    <oneTimeAccessToken>secretToken</oneTimeAccessToken>
+    -->  
+  <connectionProvider>
+    <className>org.jivesoftware.database.EmbeddedConnectionProvider</className>
+  </connectionProvider> 
+  <setup>true</setup> 
+  <fqdn>test.local</fqdn>
+</jive>
+
+<ldap>
+    <host>ipa.test.local</host>
+    <port>389</port>
+    <baseDN>cn="users",cn="accounts",dc="test",dc="local"</baseDN>
+    <adminDN>cn=Directory Manager</adminDN>
+    <adminPassword>samplepass</adminPassword>
+    <usernameField>sAMAccountName</usernameField>
+    <searchFilter>(objectClass=organizationalPerson)</searchFilter>
+<vcard-mapping><![CDATA[
+<vCard xmlns="vcard-temp">
+    <N>
+        <GIVEN>{cn}</GIVEN>
+    </N>
+    <EMAIL>
+        <USERID>{mail}</USERID>
+    </EMAIL>
+    <FN>{displayName}</FN>
+    <PHOTO>
+        <TYPE>image/jpeg</TYPE>
+        <BINVAL>{jpegPhoto}</BINVAL>
+    </PHOTO>
+    <ADR>
+        <WORK/>
+        <STREET>{streetAddress}</STREET>
+        <LOCALITY>{l}</LOCALITY>
+        <REGION>{st}</REGION>
+        <PCODE>{postalCode}</PCODE>
+        <CTRY>{co}</CTRY>
+        </ADR>
+    <TEL>
+        <WORK/>
+        <VOICE/>
+        <NUMBER>{telephoneNumber}</NUMBER>
+    </TEL>
+    <TITLE>{title}</TITLE>
+<ORG>
+<ORGUNIT>{department}</ORGUNIT>
+</ORG>
+</vCard>]]></vcard-mapping>
+    <nameField>cn</nameField>
+    <emailField>mail</emailField>
+    <groupNameField>cn</groupNameField>
+    <groupMemberField>member</groupMemberField>
+    <groupDescriptionField>description</groupDescriptionField>
+    <posixMode>false</posixMode>
+    <groupSearchFilter>(objectClass=group)</groupSearchFilter>
+</ldap>
+
+<provider>
+    <vcard>
+        <className>org.jivesoftware.openfire.ldap.LdapVCardProvider</className>
+    </vcard>
+    <user>
+        <className>org.jivesoftware.openfire.ldap.LdapUserProvider</className>
+    </user>
+    <auth>
+        <className>org.jivesoftware.openfire.ldap.LdapAuthProvider</className>
+    </auth>
+    <group>
+        <className>org.jivesoftware.openfire.ldap.LdapGroupProvider</className>
+    </group>
+</provider>
