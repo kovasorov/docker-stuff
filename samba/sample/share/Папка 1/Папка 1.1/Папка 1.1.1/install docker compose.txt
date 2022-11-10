@@ -1,0 +1,19 @@
+﻿Install Docker Compose
+Estimated reading time: 7 minutes
+You can run Compose on macOS, Windows, and 64-bit Linux.
+
+Prerequisites
+Docker Compose relies on Docker Engine for any meaningful work, so make sure you have Docker Engine installed either locally or remote, depending on your setup.
+
+On desktop systems like Docker Desktop for Mac and Windows, Docker Compose is included as part of those desktop installs.
+
+On Linux systems, first install the Docker for your OS as described on the Get Docker page, then come back here for instructions on installing Compose on Linux systems.
+
+To run Compose as a non-root user, see Manage Docker as a non-root user.
+
+Install Compose
+Follow the instructions below to install Compose on Mac, Windows, Windows Server 2016, or Linux systems, or find out about alternatives like using the pip Python package manager or installing Compose as a container.
+
+Install a different version
+
+The instructions below outline installation of the current stable release (v1.25.0) of Compose. To install a different version of Compose, replace the given release number with the one that you want. Compose releases are also listed and available for direct download on the Compose repository release page on GitHub. To install a pre-release of Compose, refer to the install pre-release builds section.
